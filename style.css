@@ -192,8 +192,8 @@ p.welcome-heading{
 .welcome-heading span {
     color: #61dafb;
     font-weight: 800;
-    /* display: inline-block; */
-    /* position: relative; */
+    display: inline-block;
+    position: relative;
     animation: slidingLineFade 4s linear infinite;
 }
 @keyframes slidingLineFade {
@@ -752,6 +752,9 @@ footer a:hover img{
     #close-button{
         height: 22px;
         width: 22px;
+    }
+    .right-box img{
+        width: 90%;
     }
 }
 @media (max-width: 397px) {
