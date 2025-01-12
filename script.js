@@ -1,20 +1,24 @@
 document.getElementById("main-logo").addEventListener("click", function() {
     window.location.reload(); // Refresh the page
 });
-
-// Function to calculate dynamic positions based on element offsets
+alert("welcomeContainerBottom of .welcome-container: " + document.querySelector(".welcome-container").getBoundingClientRect().bottom + window.scrollY);
+// Function to calculate dynamic positions based on position of the bottom edge of the .welcome-container relative to the entire page.
 function calculateScrollTargets() {
+    const welcomeContainer = document.querySelector(".welcome-container");
+    const welcomeContainerBottom =
+        welcomeContainer.getBoundingClientRect().bottom + window.scrollY; // Bottom position relative to the page
+
     return {
         "home-taker": 0,
         "sub-home-taker": 0,
-        "about-taker": document.getElementById("home").offsetTop+537,
-        "sub-about-taker": document.getElementById("home").offsetTop+537,
-        "skills-taker": document.getElementById("home").offsetTop+1168,
-        "sub-skills-taker": document.getElementById("home").offsetTop+1168,
-        "projects-taker": document.getElementById("home").offsetTop+1799,
-        "sub-projects-taker": document.getElementById("home").offsetTop+1799,
-        "contact-taker": document.getElementById("home").offsetTop+2430,
-        "sub-contact-taker": document.getElementById("home").offsetTop+2430,
+        "about-taker": welcomeContainerBottom - 69,
+        "sub-about-taker": welcomeContainerBottom - 69,
+        "skills-taker": welcomeContainerBottom + 561,
+        "sub-skills-taker": welcomeContainerBottom + 561,
+        "projects-taker": welcomeContainerBottom + 1191,
+        "sub-projects-taker": welcomeContainerBottom + 1191,
+        "contact-taker": welcomeContainerBottom + 1822,
+        "sub-contact-taker": welcomeContainerBottom + 1822,
         "footer-link": 0,
         "footer-image": 0
     };
