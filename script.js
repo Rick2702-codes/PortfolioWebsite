@@ -1,7 +1,7 @@
 document.getElementById("main-logo").addEventListener("click", function() {
     window.location.reload(); // Refresh the page
 });
-alert("welcomeContainerBottom of .welcome-container: " + document.querySelector(".welcome-container").getBoundingClientRect().bottom + window.scrollY);
+
 // Function to calculate dynamic positions based on position of the bottom edge of the .welcome-container relative to the entire page.
 function calculateScrollTargets() {
     const welcomeContainer = document.querySelector(".welcome-container");
