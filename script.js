@@ -2,7 +2,6 @@ document.getElementById("main-logo").addEventListener("click", function() {
     window.location.reload(); // Refresh the page
 });
 
-alert("OffsetTop of #home: " + document.getElementById("home").offsetTop);
 // Function to calculate dynamic positions based on element offsets
 function calculateScrollTargets() {
     return {
