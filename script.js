@@ -2,23 +2,28 @@ document.getElementById("main-logo").addEventListener("click", function() {
     window.location.reload(); // Refresh the page
 });
 
-// Function to calculate dynamic positions based on position of the bottom edge of the .welcome-container relative to the entire page.
+// Function to calculate dynamic positions based on position of the bottom edge of different containers
 function calculateScrollTargets() {
     const welcomeContainer = document.querySelector(".welcome-container");
-    const welcomeContainerBottom =
-        welcomeContainer.getBoundingClientRect().bottom + window.scrollY; // Bottom position relative to the page
+    const welcomeContainerBottom = welcomeContainer.getBoundingClientRect().bottom + window.scrollY; // Bottom position relative to the page
+    const aboutContainer = document.querySelector(".about-container");
+    const aboutContainerBottom = aboutContainer.getBoundingClientRect().bottom + window.scrollY; // Bottom position relative to the page
+    const languageContainer = document.querySelector(".language-container");
+    const languageContainerBottom = languageContainer.getBoundingClientRect().bottom + window.scrollY; // Bottom position relative to the page
+    const projectContainer = document.querySelector(".project-container");
+    const projectContainerBottom = projectContainer.getBoundingClientRect().bottom + window.scrollY; // Bottom position relative to the page
 
     return {
         "home-taker": 0,
         "sub-home-taker": 0,
         "about-taker": welcomeContainerBottom - 69,
         "sub-about-taker": welcomeContainerBottom - 69,
-        "skills-taker": welcomeContainerBottom + 561,
-        "sub-skills-taker": welcomeContainerBottom + 561,
-        "projects-taker": welcomeContainerBottom + 1191,
-        "sub-projects-taker": welcomeContainerBottom + 1191,
-        "contact-taker": welcomeContainerBottom + 1822,
-        "sub-contact-taker": welcomeContainerBottom + 1822,
+        "skills-taker": aboutContainerBottom - 90,
+        "sub-skills-taker": aboutContainerBottom - 90,
+        "projects-taker": languageContainerBottom - 94,
+        "sub-projects-taker": languageContainerBottom - 94,
+        "contact-taker": projectContainerBottom - 94.5,
+        "sub-contact-taker": projectContainerBottom - 94.5,
         "footer-link": 0,
         "footer-image": 0
     };
