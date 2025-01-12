@@ -301,7 +301,7 @@ p.welcome-heading{
     background-color: rgb(13, 13, 37);
     position: absolute;
     z-index: -1;
-    top: calc(83vh + 7.5rem);
+    top: calc(83vh + 7.25rem);
 }
 .change-width-1point2s-about-container-absolute{
     animation: changeWidthAboutContainerAbsolute 1.2s ease;

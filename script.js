@@ -2,28 +2,32 @@ document.getElementById("main-logo").addEventListener("click", function() {
     window.location.reload(); // Refresh the page
 });
 
-// Define scroll targets and their positions
-const scrollTargets = {
-    "home-taker": 0,
-    "sub-home-taker": 0,
-    "about-taker": 631,
-    "sub-about-taker": 631,
-    "skills-taker": 1262,
-    "sub-skills-taker": 1262,
-    "projects-taker": 1893,
-    "sub-projects-taker": 1893,
-    "contact-taker": 2524,
-    "sub-contact-taker": 2524,
-    "footer-link": 0,
-    "footer-image": 0
-};
+// Function to calculate dynamic positions
+function calculateScrollTargets() {
+    const baseHeight = window.innerHeight; // Get viewport height
+    return {
+        "home-taker": 0,
+        "sub-home-taker": 0,
+        "about-taker": baseHeight * 0.86, // Example: 75% of viewport height
+        "sub-about-taker": baseHeight * 0.86,
+        "skills-taker": baseHeight * 1.72, // Example: 150% of viewport height
+        "sub-skills-taker": baseHeight * 1.72,
+        "projects-taker": baseHeight * 2.59, // Example: 225% of viewport height
+        "sub-projects-taker": baseHeight * 2.59,
+        "contact-taker": baseHeight * 3.46, // Example: 300% of viewport height
+        "sub-contact-taker": baseHeight * 3.46,
+        "footer-link": 0,
+        "footer-image": 0
+    };
+}
 
 // Function to handle scroll behavior
 function handleScroll(event) {
     event.preventDefault(); // Prevent default anchor behavior
+    const scrollTargets = calculateScrollTargets();
     const targetId = event.target.id;
     const scrollPosition = scrollTargets[targetId];
-    
+
     if (scrollPosition !== undefined) {
         window.scrollTo({
             top: scrollPosition,
@@ -37,7 +41,13 @@ function handleScroll(event) {
 }
 
 // Attach event listeners to all scrollable links
-Object.keys(scrollTargets).forEach(targetId => {
+const scrollTargetsKeys = [
+    "home-taker", "sub-home-taker", "about-taker", "sub-about-taker",
+    "skills-taker", "sub-skills-taker", "projects-taker", "sub-projects-taker",
+    "contact-taker", "sub-contact-taker", "footer-link", "footer-image"
+];
+
+scrollTargetsKeys.forEach(targetId => {
     const element = document.getElementById(targetId);
     if (element) {
         element.addEventListener("click", handleScroll);
