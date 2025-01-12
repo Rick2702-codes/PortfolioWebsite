@@ -2,20 +2,19 @@ document.getElementById("main-logo").addEventListener("click", function() {
     window.location.reload(); // Refresh the page
 });
 
-// Function to calculate dynamic positions
+// Function to calculate dynamic positions based on element offsets
 function calculateScrollTargets() {
-    const baseHeight = window.innerHeight; // Get viewport height
     return {
         "home-taker": 0,
         "sub-home-taker": 0,
-        "about-taker": baseHeight * 0.86, // Example: 75% of viewport height
-        "sub-about-taker": baseHeight * 0.86,
-        "skills-taker": baseHeight * 1.72, // Example: 150% of viewport height
-        "sub-skills-taker": baseHeight * 1.72,
-        "projects-taker": baseHeight * 2.59, // Example: 225% of viewport height
-        "sub-projects-taker": baseHeight * 2.59,
-        "contact-taker": baseHeight * 3.46, // Example: 300% of viewport height
-        "sub-contact-taker": baseHeight * 3.46,
+        "about-taker": document.getElementById("home").offsetTop+537,
+        "sub-about-taker": document.getElementById("home").offsetTop+537,
+        "skills-taker": document.getElementById("home").offsetTop+1168,
+        "sub-skills-taker": document.getElementById("home").offsetTop+1168,
+        "projects-taker": document.getElementById("home").offsetTop+1799,
+        "sub-projects-taker": document.getElementById("home").offsetTop+1799,
+        "contact-taker": document.getElementById("home").offsetTop+2430,
+        "sub-contact-taker": document.getElementById("home").offsetTop+2430,
         "footer-link": 0,
         "footer-image": 0
     };
