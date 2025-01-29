@@ -68,13 +68,13 @@ const animatedElements = document.querySelectorAll("[data-animation]");
 const observerLink = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        const link = document.querySelector(`a[href="#${entry.target.id}"]`);
+        const links = document.querySelectorAll(`a[href="#${entry.target.id}"]`);
         if (entry.isIntersecting) {
           // Highlight the link
-          link.style.color = "#61dafb";
+          links.forEach((link) => link.style.color = "#61dafb");
         } else {
           // Reset to default
-          link.style.color = "";
+          links.forEach((link) => link.style.color = "");
         }
       });
     },
