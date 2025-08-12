@@ -227,3 +227,29 @@ const adjustWidths = () => {
 adjustWidths();
 
 window.addEventListener("resize", adjustWidths);
+
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop normal form submission
+    
+    const form = event.target;
+    const data = new FormData(form);
+
+    fetch("https://formspree.io/f/xovlrnaq", {
+        method: "POST",
+        body: data,
+        headers: { "Accept": "application/json" }
+    })
+    .then(response => {
+        if (response.ok) {
+            form.reset(); // clears the form
+            window.location.href = "thank-you.html"; // manual redirect
+        } else {
+            return response.json().then(errData => {
+                alert(errData.error || "Something went wrong!");
+            });
+        }
+    })
+    .catch(() => {
+        alert("Network error, please try again later.");
+    });
+});
